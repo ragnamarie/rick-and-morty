@@ -31,9 +31,13 @@ export function createCharacterCard(characterData) {
   typeInfo.classList.add("card__type-description");
   typeInfo.textContent = characterData.type;
 
-  // const occurences = document.createElement("dl");
-  // occurences.classList.add("card__occurences-title");
-  // occurences.textContent = characterData.occ;
+  const occurancesTitle = document.createElement("dt");
+  occurancesTitle.classList.add("card__occurences-title");
+  occurancesTitle.textContent = "Occurances";
+
+  const occurancesInfo = document.createElement("dd");
+  occurancesInfo.classList.add("card__occurences-description");
+  occurancesInfo.textContent = characterData.episode.length;
 
   card.append(picture);
   card.append(cardContent);
@@ -43,7 +47,8 @@ export function createCharacterCard(characterData) {
   card.append(statusInfo);
   card.append(typeTitle);
   card.append(typeInfo);
-  // card.append(occurences);
+  card.append(occurancesTitle);
+  card.append(occurancesInfo);
 
   return card;
 }
