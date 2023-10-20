@@ -1,55 +1,32 @@
 export function createCharacterCard(characterData) {
-  const card = document.createElement("article"); // Create a new article Element
+  const card = document.createElement("list"); // Create a new article Element
   card.classList.add("card");
-  card.innerHTML =
-    `
-    <li class="card">
-          <div class="card__image-container">
-            <img
-              class="card__image"
-              src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-              alt="Rick Sanchez"
-            />
-            <div class="card__image-gradient"></div>
-          </div>
-          <div class="card__content">
-            <h2 class="card__title"></h2>
-            <dl class="card__info">
-              <dt class="card__info-title">Status</dt>
-              <dd class="card__info-description">` +
-    status +
-    `</dd>
-              <dt class="card__info-title">Type</dt>
-              <dd class="card__info-description">` +
-    type +
-    `</dd>
-              <dt class="card__info-title">Occurrences</dt>
-              <dd class="card__info-description">` +
-    51 +
-    `</dd>
-            </dl>
-          </div>
-        </li>`;
 
   // Fill the article element with content.
 
   const picture = document.createElement("img");
-  picture.src = characterData.name;
+  picture.src = characterData.image;
 
-  const heading = document.createElement("h2");
-  heading.textContent = characterData.name;
+  const title = document.createElement("h2");
+  title.textContent = characterData.name;
 
-  card.append(heading);
+  const status = document.createElement("dl");
+  status.classList.add("card__status-title");
+  status.textContent = characterData.title;
 
-  const eyeColor = document.createElement("p");
-  eyeColor.textContent = `Eye color: ${characterData.eye_color}`;
+  const type = document.createElement("dl");
+  type.classList.add("card__type-title");
+  type.textContent = characterData.type;
 
-  card.append(eyeColor);
+  const occurences = document.createElement("dl");
+  occurences.classList.add("card__occurences-title");
+  occurences.textContent = characterData.occ;
 
-  const birthYear = document.createElement("p");
-  birthYear.textContent = `Birth Year: ${characterData.birth_year}`;
-
-  card.append(birthYear);
+  card.append(picture);
+  card.append(title);
+  card.append(status);
+  card.append(type);
+  card.append(occurences);
 
   return card;
 }
