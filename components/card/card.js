@@ -1,54 +1,26 @@
 export function createCharacterCard(characterData) {
-  const card = document.createElement("li"); // Create a new article Element
+  const card = document.createElement("li");
   card.classList.add("card");
-
-  const picture = document.createElement("img");
-  picture.src = characterData.image;
-
-  const cardContent = document.createElement("div");
-  cardContent.classList.add("card__content");
-
-  const title = document.createElement("h2");
-  title.classList.add("card__title");
-  title.textContent = characterData.name;
-
-  const infoCard = document.createElement("dl");
-  infoCard.classList.add("card__info");
-
-  const statusTitle = document.createElement("dt");
-  statusTitle.classList.add("card__status-title");
-  statusTitle.textContent = "Status";
-
-  const statusInfo = document.createElement("dd");
-  statusInfo.classList.add("card__status-description");
-  statusInfo.textContent = characterData.status;
-
-  const typeTitle = document.createElement("dt");
-  typeTitle.classList.add("card__type-title");
-  typeTitle.textContent = "Title";
-
-  const typeInfo = document.createElement("dd");
-  typeInfo.classList.add("card__type-description");
-  typeInfo.textContent = characterData.type;
-
-  const occurancesTitle = document.createElement("dt");
-  occurancesTitle.classList.add("card__occurences-title");
-  occurancesTitle.textContent = "Occurances";
-
-  const occurancesInfo = document.createElement("dd");
-  occurancesInfo.classList.add("card__occurences-description");
-  occurancesInfo.textContent = characterData.episode.length;
-
-  card.append(picture);
-  card.append(cardContent);
-  card.append(title);
-  card.append(infoCard);
-  card.append(statusTitle);
-  card.append(statusInfo);
-  card.append(typeTitle);
-  card.append(typeInfo);
-  card.append(occurancesTitle);
-  card.append(occurancesInfo);
-
+  card.innerHTML = `
+  <div class="card__image-container">
+  <img
+    class="card__image"
+    src="${characterData.image}"
+    alt="${characterData.name}"
+  />
+  <div class="card__image-gradient"></div>
+</div>
+<div class="card__content">
+  <h2 class="card__title">${characterData.name}</h2>
+  <dl class="card__info">
+    <dt class="card__status-title">Status</dt>
+    <dd class="card__status-description">${characterData.status}</dd>
+    <dt class="card__type-title">Type</dt>
+    <dd class="card__type-description">${characterData.type}</dd>
+    <dt class="card__occurences-title">Occurrences</dt>
+    <dd class="card__occurences-description">${characterData.episode.length}</dd>
+  </dl>
+</div>
+  `;
   return card;
 }
