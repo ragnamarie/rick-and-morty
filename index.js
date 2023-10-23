@@ -64,6 +64,5 @@ searchBar.addEventListener("submit", (event) => {
   const input = Object.fromEntries(formData);
   page = 1;
   searchQuery = input.query;
-  // apiUrl = `https://rickandmortyapi.com/api/character/?name=${searchQuery}&`;
   fetchCharacters();
 });
