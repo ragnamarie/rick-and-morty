@@ -39,7 +39,7 @@ export async function fetchCharacters() {
 }
 
 function updatePagination() {
-  pagination.innerHTML = `Page ${page} of ${maxPage}`;
+  pagination.innerHTML = `${page} of ${maxPage}`;
 }
 
 fetchCharacters();
