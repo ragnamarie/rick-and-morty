@@ -1,5 +1,12 @@
+body {
+  background-color: lightyellow;
+}
+
 .card-container {
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .card {
   width: 300px;
